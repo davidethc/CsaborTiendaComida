@@ -1,0 +1,113 @@
+/* ================= FOOTER PERSONALIZADO ================= */
+/* Configuración del Sticky Footer */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos base del footer */
+.footer {
+    background: #fff;
+    color: #222;
+    padding: 2rem 0 1.2rem;
+    font-size: 1rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+    margin-top: auto; /* Mantiene el footer abajo */
+}
+
+/* Contenedor del logo en el footer */
+.footer-logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin-left: -15px;
+}
+
+.logo-footer {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive del footer */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 0.92rem;
+        padding: 2rem 1rem;
+    }
+    
+    .footer-logo {
+        max-width: 160px;
+        margin-left: -15px;
+    }
+    
+    .logo-footer {
+        text-align: center;
+        align-items: center;
+    }
+}
+/* Menú del footer */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-menu li {
+    margin-bottom: 0.3rem;
+}
+
+.footer-menu li a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.footer-menu li a:hover {
+    color: #db4f87;
+}
+
+/* Iconos de redes sociales */
+.footer-social-icons {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.footer-social-icons a {
+    color: #222;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+}
+
+.footer-social-icons a:last-child {
+    margin-right: 0;
+}
+
+.footer-social-icons a:hover {
+    color: #db4f87;
+}
+
+/* Información de contacto */
+.footer-contact {
+    margin-top: 0.5rem;
+    font-size: 0.97rem;
+    text-align: center;
+}
+
+/* Copyright */
+.footer-copy {
+    text-align: center;
+    font-size: 0.92rem;
+    margin-top: 1rem;
+    color: #888;
+}

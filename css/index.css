@@ -1,0 +1,44 @@
+
+/* ================= BOTÓN FLOTANTE WHATSAPP ================= */
+.whatsapp-button {
+    /* Posicionamiento fijo */
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    
+    /* Dimensiones y forma */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    
+    /* Estilos visuales */
+    background-color: #25d366;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    
+    /* Centrado de contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Tipografía y efectos */
+    font-size: 2rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+}
+
+/* Versión móvil del botón */
+@media (max-width: 576px) {
+    .whatsapp-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+        bottom: 16px;
+        right: 16px;
+    }
+}

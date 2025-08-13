@@ -1,0 +1,209 @@
+/* ================= HEADER PERSONALIZADO ================= */
+/* Estilos base del header */
+.header {
+    background: #fff; /* Fondo sólido */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 0.5rem 0; /* Simplificado de padding-top y padding-bottom */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* Siempre encima del hero */
+}
+
+/* Añade margen superior al hero igual a la altura del header */
+/* Elimina el margin-top para evitar espacio extra */
+
+
+/* Contenedor del logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    margin-left: 0; /* Sin separación, pegado a la izquierda */
+}
+
+/* Estilos del logo */
+.main-logo {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: max-width 0.2s;
+    display: block;
+}
+.main-nav {
+    position: relative;
+    width: 100%;
+}
+
+.main-nav .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+.main-nav .menu li a {
+	color: #2d2d2d;
+	text-decoration: none;
+	font-weight: 700;
+	font-family: 'Poppins', 'Roboto', sans-serif;
+	font-size: 1.25rem;
+	padding: 0.2rem 0.5rem;
+	border-radius: 4px;
+	transition: color 0.2s, border-bottom 0.2s;
+	position: relative;
+	display: inline-block;
+}
+.main-nav .menu li a.active,
+.main-nav .menu li a:focus,
+.main-nav .menu li a.selected {
+	color: #a52a2a;
+	font-weight: 700;
+}
+.main-nav .menu li a.active::after,
+.main-nav .menu li a:focus::after,
+.main-nav .menu li a.selected::after {
+	content: '';
+	display: block;
+	width: 30px;
+	height: 3px;
+	background: #a52a2a;
+	border-radius: 2px;
+	margin-top: 2px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -6px;
+}
+.main-nav .menu li a:hover:not(.active):not(.selected) {
+	color: #a52a2a;
+}
+.main-nav .menu li a:hover:not(.active):not(.selected)::after {
+	content: '';
+	display: block;
+	width: 30px;
+	height: 3px;
+	background: #a52a2a;
+	border-radius: 2px;
+	margin-top: 2px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -6px;
+}
+
+/* Menú móvil y hamburguesa */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    /* Header fijo en móviles */
+    .header {
+        position: fixed;
+        width: 100%;
+        z-index: 1001;
+        top: 0;
+        padding: 0.3rem 0;
+    }
+
+    /* Ajustes del logo en móviles */
+    .main-logo {
+        max-width: 360px;
+        max-height: 115px;
+    }
+
+    /* Botón del menú hamburguesa */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+
+    /* Contenedor de navegación */
+    .main-nav {
+        width: auto;
+    }
+
+    /* Menú desplegable */
+    .main-nav .menu {
+        display: none;
+        position: absolute;
+        top: 93px;
+        right: -5px;
+        width: 250px;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    /* Estado activo del menú */
+    .main-nav .menu.open {
+        display: flex;
+    }
+
+    /* Elementos del menú */
+    .main-nav .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Enlaces del menú */
+    .main-nav .menu li a {
+        display: block;
+        padding: 0.8rem 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-nav .menu {
+        display: flex !important;
+        gap: 2rem;
+    }
+    
+    .main-logo {
+        max-width: 200px; /* Exactamente el mismo tamaño que el footer */
+    }
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .logo-link {
+        margin-left: 0; /* Sin separación, pegado a la izquierda */
+        padding: 0;
+    }
+
+    .col-md-3 {
+        padding-left: 0; /* Sin padding extra */
+    }
+}
+
+.carousel-caption {
+    top:95%; /* o prueba con 20% */
+}
