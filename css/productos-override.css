@@ -59,9 +59,12 @@
 /* Estilos para el contenedor del carrusel */
 .product-carousel-container {
     position: relative;
-    padding: 20px 40px;
+    padding: 20px 60px;
     margin-bottom: 30px;
     z-index: 3;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Estilos específicos para Owl Carousel */
@@ -320,16 +323,20 @@
 }
 
 .owl-nav button.owl-prev {
-    left: -22px;
+    left: -50px;
 }
 
 .owl-nav button.owl-next {
-    right: -22px;
+    right: -50px;
 }
 
 .owl-nav button i {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .owl-dots {
@@ -389,19 +396,59 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .product-carousel-container {
-        padding: 10px;
+        padding: 10px 40px;
     }
     
+    .owl-nav button {
+        width: 40px;
+        height: 40px;
+        background: rgba(220, 53, 69, 0.9) !important;
+    }
+    
+    .owl-nav button.owl-prev {
+        left: -30px;
+    }
+    
+    .owl-nav button.owl-next {
+        right: -30px;
+    }
+
+    .product-card {
+        margin: 10px 5px;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-carousel-container {
+        padding: 10px 30px;
+    }
+
+    .owl-nav button.owl-prev {
+        left: -25px;
+    }
+
+    .owl-nav button.owl-next {
+        right: -25px;
+    }
+
     .owl-nav button {
         width: 35px;
         height: 35px;
     }
-    
-    .owl-nav button.owl-prev {
-        left: -15px;
-    }
-    
-    .owl-nav button.owl-next {
-        right: -15px;
+
+    .owl-nav button i {
+        font-size: 1.2rem;
     }
 }
