@@ -1,0 +1,407 @@
+#productos {
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    padding: 4rem 0;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#productos .container {
+    position: relative;
+    z-index: 2;
+}
+
+#productos {
+    position: relative;
+    z-index: 10;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #fff 50%, #f8f9fa 50%);
+    overflow: hidden;
+}
+
+.owl-carousel {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden;
+}
+
+.owl-stage {
+    display: flex !important;
+}
+
+.owl-item {
+    display: flex !important;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 15px;
+}
+
+@media (min-width: 768px) {
+    .owl-item {
+        max-width: calc(33.333% - 30px);
+    }
+}
+
+@media (min-width: 992px) {
+    .owl-item {
+        max-width: calc(25% - 30px);
+    }
+}
+
+#productos .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilos para el contenedor del carrusel */
+.product-carousel-container {
+    position: relative;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+    z-index: 3;
+}
+
+/* Estilos específicos para Owl Carousel */
+.owl-carousel {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.owl-carousel .owl-stage-outer {
+    overflow: visible;
+    padding: 20px 0;
+}
+
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+
+.owl-carousel .owl-item {
+    display: flex;
+    flex: 1 0 auto;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.owl-carousel .owl-item.active {
+    opacity: 1;
+}
+
+.owl-carousel .product-card {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+/* Estilos para el carousel */
+.owl-carousel {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Estilos para las tarjetas de productos */
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Contenedor de imagen */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%; /* Ratio 4:3 */
+    background: #f8f9fa;
+}
+
+.img-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+    z-index: 1;
+}
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%; /* Ratio 4:3 */
+    background-color: #f8f9fa;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+    text-align: center;
+    background: #fff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #2d3436;
+}
+
+.card-text {
+    color: #636e72;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Overlay al hacer hover */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(220, 53, 69, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.product-card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.overlay-text {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 10px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .overlay {
+    opacity: 1;
+}
+
+.product-card:hover .overlay-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.product-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Estilos para el cuerpo de la tarjeta */
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Estilos para los controles del carrusel */
+.owl-nav {
+    margin-top: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.owl-nav button {
+    position: absolute;
+    width: 44px !important;
+    height: 44px !important;
+    background: #dc3545 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2) !important;
+    transition: all 0.3s ease !important;
+    pointer-events: auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.owl-nav button:hover {
+    background: #c82333 !important;
+    transform: scale(1.1);
+}
+
+.owl-nav button.owl-prev {
+    left: -22px;
+}
+
+.owl-nav button.owl-next {
+    right: -22px;
+}
+
+.owl-nav button i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.owl-dots {
+    margin-top: 2rem !important;
+}
+
+.owl-dot span {
+    width: 10px !important;
+    height: 10px !important;
+    margin: 5px 7px !important;
+    background: #dee2e6 !important;
+    display: block;
+    transition: all 0.3s ease !important;
+    border-radius: 30px !important;
+}
+
+.owl-dot.active span {
+    background: #dc3545 !important;
+    width: 28px !important;
+}
+
+.card-body {
+    padding: 1.5rem;
+    text-align: center;
+    background: #fff;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    color: #636e72;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.owl-nav button.owl-prev {
+    left: -20px;
+}
+
+.owl-nav button.owl-next {
+    right: -20px;
+}
+
+.owl-nav button span {
+    font-size: 1.5rem;
+    line-height: 1;
+    display: block;
+    margin-top: -5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-carousel-container {
+        padding: 10px;
+    }
+    
+    .owl-nav button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .owl-nav button.owl-prev {
+        left: -15px;
+    }
+    
+    .owl-nav button.owl-next {
+        right: -15px;
+    }
+}

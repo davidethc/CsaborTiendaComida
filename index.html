@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C'sabor - Esqueleto</title>
+
     <!-- Bootstrap solo para responsividad -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Owl Carousel CSS (ANTES para que cargue estilos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/productos-override.css">
 </head>
 <body>
+
     <!-- Header y Navegación -->
     <header class="header">
         <div class="container">
@@ -72,12 +82,19 @@
         <button class="hero-arrow right"><i class="fas fa-chevron-right"></i></button>
     </div>
 </section>
-  <section id="quienes-somos" class="py-5 bg-light position-relative">
+
+
+
+
+ <section id="quienes-somos" class="py-5 bg-light position-relative">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h2 class="fw-bold display-5">Quiénes Somos</h2>
-                    <p>En C’Sabor fusionamos tradición y creatividad para ofrecer empanadas y piqueos auténticos, llenos de sabor y raíces latinas. Nuestra especialidad son las mini empanadas artesanales, perfectas para eventos, reuniones o simplemente para disfrutar un antojo. Hechos con ingredientes frescos y pasión por la cocina, cada bocado refleja nuestro compromiso con la calidad, el gusto y la cultura. ¡Con C’Sabor, cada ocasión sabe mejor!</p>
+                    <p>Somos una empresa familiar caleña con más de 25 años de experiencia, brindando productos típicos
+                        vallunos congelados y precocidos de la mejor calidad.</p>
+                    <p>Nuestra misión es llevar el auténtico sabor valluno a cada hogar, manteniendo la tradición y la
+                        calidad en cada producto que elaboramos.</p>
                     <a href="#" class="btn btn-danger rounded-pill px-4 btn-conoce-mas">Conoce Más</a>
                 </div>
                 <div class="col-md-6">
@@ -90,40 +107,76 @@
         <div class="position-absolute top-0 end-0 w-50 h-100 bg-danger opacity-25"
             style="clip-path: polygon(100% 0, 100% 100%, 0 100%);"></div>
     </section>
-    
-    <!-- Sección Nuestros Productos -->
+
+    <!-- Sección Productos (Carrusel) -->
     <section id="productos" class="py-5 position-relative">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold display-5">Nuestros Productos</h2>
                 <p class="lead">Productos típicos vallunos congelados y precocidos de la mejor calidad.</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="imagenes/corviche.jpg" class="card-img-top" alt="Corviches">
-                        <div class="card-body">
-                            <h5 class="card-title">Corviches</h5>
-                            <p class="card-text">Masa tradicional de verde con maní rellena Albacora con refritos de maní.</p>
-                        </div>
+            <!-- Contenedor del carrusel con clase personalizada -->
+            <div class="product-carousel-container">
+                <div class="product-carousel owl-carousel owl-theme">
+                    <!-- Item 1 -->
+                    <div class="product-card">
+                        <a href="productos.html" class="product-link">
+                            <div class="img-container">
+                                <img src="imagenes/congelados.png" class="card-img-top" alt="Empanadas Congeladas">
+                                <div class="overlay">
+                                    <p class="overlay-text">Click para conocer más</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Empanadas Congeladas</h5>
+                                <p class="card-text">Deliciosas empanadas congeladas listas para preparar.</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="imagenes/dedosQueso.jpg" class="card-img-top" alt="Dedos de Queso">
-                        <div class="card-body">
-                            <h5 class="card-title">Dedos de Queso</h5>
-                            <p class="card-text">Masa crocante de harina de trigo rellena de queso mozarella con un toque de orégano.</p>
-                        </div>
+                    <!-- Item 2 -->
+                    <div class="product-card">
+                        <a href="productos.html" class="product-link">
+                            <div class="img-container">
+                                <img src="imagenes/dedosQueso.jpg" class="card-img-top" alt="Dedos de Queso">
+                                <div class="overlay">
+                                    <p class="overlay-text">Click para conocer más</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dedos de Queso</h5>
+                                <p class="card-text">Crujientes dedos de queso congelados.</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="imagenes/empanadaVerde.jpg" class="card-img-top" alt="Empanadas de Verde">
-                        <div class="card-body">
-                            <h5 class="card-title">Empanadas de Verde</h5>
-                            <p class="card-text">Masa especial de verde, rellena de queso derretido.</p>
-                        </div>
+                    <!-- Item 3 -->
+                    <div class="product-card">
+                        <a href="productos.html" class="product-link">
+                            <div class="img-container">
+                                <img src="imagenes/empanadaVerde.jpg" class="card-img-top" alt="Empanadas de Verde">
+                                <div class="overlay">
+                                    <p class="overlay-text">Click para conocer más</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Empanadas de Verde</h5>
+                                <p class="card-text">Deliciosas empanadas de verde con relleno de queso.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="product-card">
+                        <a href="productos.html" class="product-link">
+                            <div class="img-container">
+                                <img src="imagenes/corviche.jpg" class="card-img-top" alt="Corviches">
+                                <div class="overlay">
+                                    <p class="overlay-text">Click para conocer más</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Corviches</h5>
+                                <p class="card-text">Tradicionales corviches ecuatorianos en formato mini.</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -136,13 +189,13 @@
             style="clip-path: polygon(0 0, 100% 0, 0 100%);"></div>
     </section>
 
-    <!-- Sección Quiénes Somos -->
-  
 
 
 
 
-    </main>
+
+
+
 
   <footer class="footer">
         <div class="container">
@@ -182,16 +235,72 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="#" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- jQuery (necesario para Owl Carousel) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Tu archivo JavaScript personalizado -->
+    <script src="js/index.js"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-    <!-- Custom Scripts -->
-    <script src="js/navbar-script.js"></script>
-    <script src="js/hero.js"></script>
+    <script>
+        // Verificar que jQuery está cargado
+        if (typeof jQuery != 'undefined') {
+            console.log('jQuery está cargado correctamente');
+        } else {
+            console.error('jQuery no está cargado');
+        }
+
+        // Verificar que Owl Carousel está cargado
+        if (typeof jQuery.fn.owlCarousel != 'undefined') {
+            console.log('Owl Carousel está cargado correctamente');
+        } else {
+            console.error('Owl Carousel no está cargado');
+        }
+
+        // Inicializar el carrusel cuando el documento esté listo
+        jQuery(document).ready(function($) {
+            if ($('.product-carousel').length) {
+                console.log('Elemento del carrusel encontrado, inicializando...');
+                $('.product-carousel').owlCarousel({
+                    loop: true,
+                    margin: 30,
+                    nav: true,
+                    dots: true,
+                    autoplay: true,
+                    autoplayTimeout: 6000,
+                    autoplayHoverPause: true,
+                    navText: [
+                        '<i class="fas fa-chevron-left"></i>',
+                        '<i class="fas fa-chevron-right"></i>'
+                    ],
+                    responsive: {
+                        0: {
+                            items: 1,
+                            margin: 15
+                        },
+                        576: {
+                            items: 2,
+                            margin: 20
+                        },
+                        992: {
+                            items: 3,
+                            margin: 25
+                        },
+                        1200: {
+                            items: 4,
+                            margin: 30
+                        }
+                    }
+                });
+                console.log('Carrusel inicializado');
+            } else {
+                console.error('No se encontró el elemento del carrusel');
+            }
+        });
+    </script>
 </body>
 </html>
+
+
