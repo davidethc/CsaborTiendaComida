@@ -21,4 +21,10 @@ document.querySelectorAll('.hero-arrow.right').forEach(btn => {
     });
 });
 
+// Avance automático del hero cada 5 segundos
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}, 4500);
+
 showSlide(currentSlide);

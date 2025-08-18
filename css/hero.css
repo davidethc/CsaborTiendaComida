@@ -33,11 +33,13 @@
 .hero-content h1 {
     font-size: 2.5rem;
     font-weight: 700;
+    text-align: left;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .hero-arrow {
@@ -53,11 +55,11 @@
 }
 
 .hero-arrow.left {
-    left: 20px;
+    left: 9px;
 }
 
 .hero-arrow.right {
-    right: 20px;
+    right: 10px;
 }
 
 .btn-outline-light {

@@ -48,7 +48,10 @@ function initProductCarousel() {
             return;
         }
 
-        $carousel.owlCarousel({
+        // Agregar clase al botón de "Click para conocer más"
+            $('.product-card a').addClass('click-more');
+            
+            $carousel.owlCarousel({
             loop: true,
             margin: 30,
             nav: true,

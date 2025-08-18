@@ -15,23 +15,32 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/productos-override.css">
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="css/productos-animations.css">
+    <link rel="stylesheet" href="css/cart-responsive.css">
+
 </head>
 <body>
     <!-- Header y Navegación -->
     <header class="header">
         <div class="container">
             <div class="row align-items-center py-2">
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3"style="
+    margin-left: unset;
+    margin-right: unset;
+    padding-right: 90px;">
                     <a href="#" class="logo-link">
-                        <img src="../imagenes/logo.png" alt="C'sabor Logo" class="main-logo">
+                        <img src="imagenes/logo.png" alt="C'sabor Logo" class="main-logo">
                     </a>
                 </div>
-                <div class="col-6 col-md-9 d-flex align-items-center justify-content-end">
+                <div class="col-6 col-md-9 d-flex align-items-center justify-content-end" >
                     <nav class="main-nav">
                         <button class="menu-toggle d-md-none" aria-label="Toggle menu">
                             <span id="lottie-hamburger" class="menu-icon"></span>
                         </button>
-                        <ul class="menu">
+                        <ul class="menu" >
                             <li><a href="index.html">Inicio</a></li>
                             <li><a href="quienes.html">Quiénes Somos</a></li>
                             <li><a href="productos.html" class="active">Arma tu combo</a></li>
@@ -43,45 +52,279 @@
             </div>
         </div>
     </header>
+<main
+>
 
-    <!-- Hero Section (vacío) -->
-    <section class="hero"></section>
+    <!-- Añadimos el carrito flotante fuera del header como enlace (a) en lugar de div -->
+    <a href="#" class="cart-icon-floating" id="cart-icon">
+        <i class="fas fa-shopping-cart fa-lg"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
 
-    <!-- Productos Destacados (vacío) -->
-    <section class="featured-products"></section>
+    <!-- Cart Modal (previously Dropdown) -->
+    <div class="cart-modal" id="cart-dropdown">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Tu Carrito</h5>
+            <span class="close-cart" onclick="closeCartModal()">×</span>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-summary" id="cart-summary">
+            <div class="cart-summary-row">
+                <span class="cart-summary-label">Total:</span>
+                <span class="cart-summary-value" id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="cart-summary-row mt-2">
+                <span class="cart-summary-label">Total a pagar:</span>
+                <span class="cart-summary-value cart-total" id="cart-total">$0.00</span>
+            </div>
+            <div class="alert alert-info mt-2 p-2 small">
+                <i class="fas fa-info-circle"></i> Compra mínima: $5.00
+            </div>
+        </div>
+        <button class="btn btn-danger w-100 mt-3" id="checkout-btn" disabled>Compra mínima: $5.00</button>
+    </div>
 
-    <!-- Sobre Nosotros (vacío) -->
-    <section class="about-preview"></section>
+    <!-- Hero Section - Update the description -->
+    <section id="hero" class="py-5 bg-light-color">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Arma tu Combo</h1>
+                    <p class="lead mb-4">Crea tu propio combo de piqueos con nuestras deliciosas mini empanadas y otros
+                        productos típicos ecuatorianos.</p>
+                    <p class="mb-4">Selecciona tus productos favoritos. Perfectos para reuniones, fiestas o para
+                        disfrutar en familia.</p>
+                    <div class="alert alert-info d-inline-block">
+                        <i class="fas fa-info-circle"></i> Compra mínima: $5.00
+                    </div>
+                    <div class="mt-3">
+                        <a href="#productos-section" class="btn btn-danger btn-lg">Ver Productos</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-img-enhanced" style="margin-top: 30px;">
+                        <img src="imagenes/empanadaCombo.png"
+                            alt="Piqueos C'sabor" class="img-fluid" >
+                        <!-- Puedes agregar un badge si lo deseas -->
+                        <!-- <span class="hero-badge">Nuevo</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros de Productos -->
+    <section id="product-filters" class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <button class="btn btn-outline-danger active filter-btn" data-filter="all">Todos</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="empanada">Empanadas</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="corviche">Corviches</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="dedito">Deditos</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="bolon">Bolones</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos-section" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestros Productos</h2>
+            <p class="text-center mb-5">Explora nuestra amplia selección de productos típicos ecuatorianos, perfectos
+                para armar tu combo.</p>
+
+            <div class="row g-4" id="products-container">
+                <!-- Mini Empanada de Carne -->
+
+                <!-- Mini Empanada de Pollo -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="empanada pollo">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/empanadaPollo.jpg" alt="Mini Empanada de Pollo" class="img-fluid">
+                            <!-- Removed the product-overlay with Ver Detalles button -->
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Mini Empanada de Pollo</h3>
+                            <p class="product-description">Exquisita mini empanada con relleno de pollo desmenuzado y
+                                verduras. 
+
+                            <div class="product-meta">
+                                <span class="product-weight"><i class="fas fa-weight-hanging"></i> 40g/unidad</span>
+                                <span class="product-price">$0.35</span>
+                            </div>
+                            <div class="product-footer d-flex justify-content-between align-items-center">
+                                <a href="preparacion.html#empanadas" class="btn btn-outline-danger btn-sm">Cómo
+                                    Preparar</a>
+                                <button class="btn btn-danger btn-sm add-to-combo-btn" data-id="mini-empanada-pollo"
+                                    data-name="Mini Empanada de Pollo" data-image="imagenes/empanadaPollo.jpg"
+                                    data-price="0.35" style="
+    margin-left: 20px;"  >
+                                    <i class="fas fa-plus"></i> Añadir al Combo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Empanada de Queso -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="empanada queso">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/empanadaMaiz.jpg" alt="Mini Empanada de Queso" class="img-fluid">
+                            <!-- Removed the product-overlay with Ver Detalles button -->
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Mini Empanada de Maiz</h3>
+                            <p class="product-description">Delicada y dorada mini empanada de maíz, con una masa suave y
+                                ligeramente crujiente, rellena de jugosa carne sazonada con especias aromáticas. <span class="product-size"></p>
+
+                            <div class="product-meta">
+                                <span class="product-weight"><i class="fas fa-weight-hanging"></i> 40g/unidad</span>
+                                <span class="product-price">$0.35</span>
+                            </div>
+                            <div class="product-footer d-flex justify-content-between align-items-center">
+                                <a href="preparacion.html#empanadas" class="btn btn-outline-danger btn-sm">Cómo
+                                    Preparar</a>
+                                <button class="btn btn-danger btn-sm add-to-combo-btn" data-id="mini-empanada-queso"
+                                    data-name="Mini Empanada de Maiz" data-image="imagenes/empanadaMaiz.jpg"
+                                    data-price="0.35"style="
+    margin-left: 20px;" >
+                                    <i class="fas fa-plus"></i> Añadir al Combo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Corviche -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="corviche">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/corviche.jpg" alt="Mini Corviche" class="img-fluid">
+                            <!-- Removed the product-overlay with Ver Detalles button -->
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Mini Corviche</h3>
+                            <p class="product-description">Tradicional corviche ecuatoriano en formato mini, elaborado
+                                con plátano verde y relleno de pescado. <span class="product-size"></p>
+
+                            <div class="product-meta">
+                                <span class="product-weight"><i class="fas fa-weight-hanging"></i> 40g/unidad</span>
+                                <span class="product-price">$0.35</span>
+                            </div>
+                            <div class="product-footer d-flex justify-content-between align-items-center">
+                                <a href="preparacion.html#corviches" class="btn btn-outline-danger btn-sm">Cómo
+                                    Preparar</a>
+                                <button class="btn btn-danger btn-sm add-to-combo-btn" data-id="mini-corviche"
+                                    data-name="Mini Corviche" data-image="imagenes/corviche.jpg" data-price="0.35"style="
+    margin-left: 20px;">
+                                    <i class="fas fa-plus"></i> Añadir al Combo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Dedito de Queso -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="dedito queso">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/dedosQueso.jpg" alt="Mini Dedito de Queso" class="img-fluid">
+                            <!-- Removed the product-overlay with Ver Detalles button -->
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Mini Dedito de Queso</h3>
+                            <p class="product-description">Crujiente por fuera y suave por dentro, nuestros mini deditos
+                                de queso son irresistibles. <span class="product-size"></p>
+
+                            <div class="product-meta">
+                                <span class="product-weight"><i class="fas fa-weight-hanging"></i> 40g/unidad</span>
+                                <span class="product-price">$0.25</span>
+                            </div>
+                            <div class="product-footer d-flex justify-content-between align-items-center">
+                                <a href="preparacion.html#deditos" class="btn btn-outline-danger btn-sm">Cómo
+                                    Preparar</a>
+                                <button class="btn btn-danger btn-sm add-to-combo-btn" data-id="mini-dedito-queso"
+                                    data-name="Mini Dedito de Queso" data-image="imagenes/dedosQueso.jpg"
+                                    data-price="0.25" style="
+    margin-left: 20px;">
+                                    <i class="fas fa-plus"></i> Añadir al Combo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Bolón de Queso -->
+                <div class="col-md-6 col-lg-4 product-item" data-category="bolon queso">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/empanadaVerde.jpg" alt="Mini Bolón de Queso" class="img-fluid">
+                            <!-- Removed the product-overlay with Ver Detalles button -->
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Empanada de verde</h3>
+                            <p class="product-description">Crujiente por fuera y tierna por dentro, esta empanada de
+                                verde envuelve un relleno cremoso de queso derretido, creando una combinación
+                                irresistible de sabor y textura. <span class="product-size"></p>
+
+                            <div class="product-meta">
+                                <span class="product-weight"><i class="fas fa-weight-hanging"></i> 40g/unidad</span>
+                                <span class="product-price">$0.25</span>
+                            </div>
+                            <div class="product-footer d-flex justify-content-between align-items-center">
+                                <a href="preparacion.html#bolones" class="btn btn-outline-danger btn-sm">Cómo
+                                    Preparar</a>
+                                <button class="btn btn-danger btn-sm add-to-combo-btn" data-id="mini-bolon-queso"
+                                    data-name="Empanada de verde" data-image="imagenes/bolon-queso.jpg"
+                                    data-price="0.25" style="
+    margin-left: 20px;">
+                                    <i class="fas fa-plus"></i> Añadir al Combo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
+        <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Logo y nombre -->
                 <div class="col-md-4 logo-footer mb-3 mb-md-0">
-                    <img src="../imagenes/logo.png" alt="C'sabor Logo" class="footer-logo">
+                    <img src="imagenes/logo.png" alt="C'sabor Logo" class="footer-logo">
                     <div>C'SABOR &copy; 2025</div>
                 </div>
                 <!-- Enlaces rápidos -->
                 <div class="col-md-4 links-footer mb-3 mb-md-0">
                     <ul class="footer-menu">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Quiénes Somos</a></li>
-                        <li><a href="#">Arma tu combo</a></li>
-                        <li><a href="#">Combos C'SABOR</a></li>
-                        <li><a href="#">Cómo Preparar</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="quienes.html">Quiénes Somos</a></li>
+                        <li><a href="productos.html" class="active">Arma tu combo</a></li>
+                        <li><a href="combos-congelados.html">Combos C'SABOR</a></li>
+                        <li><a href="preparacion.html">Cómo Preparar</a></li>
                     </ul>
                 </div>
                 <!-- Redes sociales y contacto -->
                 <div class="col-md-4 social-footer">
                     <div class="footer-social-icons">
-                        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61575980099273" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg"></i></a>
+                            <a href="https://www.instagram.com/empanadas_piqueoscsabor/" target="_blank" rel="noopener"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="https://wa.me/593939352807?text=Quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" target="_blank" rel="noopener"><i class="fab fa-whatsapp fa-lg"></i></a>
                     </div>
                     <div class="footer-contact">
-                        <span><i class="fas fa-envelope"></i> contacto@csabor.com</span><br>
-                        <span><i class="fas fa-phone"></i> +593 99 999 9999</span>
+
+                        <span><i class="fas fa-phone"></i> +593 939352807</span>
                     </div>
                 </div>
             </div>
@@ -92,14 +335,23 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="#" class="whatsapp-button" target="_blank">
+
+     <a href="https://wa.me/593939352807?text=Quiero%20conocer%20m%C3%A1s%20sobre%20sus%20productos" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
- 
-    <!-- Lottie animation library -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Scripts personalizados -->
     <script src="js/navbar-script.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/empanadas.js"></script>
+    <script src="js/cart.js"></script>
     </body>
 </html>

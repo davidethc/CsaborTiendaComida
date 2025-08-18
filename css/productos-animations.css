@@ -1,0 +1,212 @@
+/* Productos Page Animations */
+
+/* Preloader fade out */
+.preloader.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Fade in animation */
+.animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Fade in up animation */
+.animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Product card hover effect */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card.hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Product image hover effect */
+.product-image {
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/* Product overlay fade in */
+.product-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Filter animations */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Add to cart button animation */
+.btn-added {
+    animation: btnPulse 0.5s ease;
+}
+
+/* Cart icon pulse animation */
+.cart-icon-pulse {
+    animation: cartPulse 0.7s ease;
+}
+
+/* Floating cart item animation */
+.cart-item-floater {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 9999;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.cart-item-floater img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Image loading animation */
+.image-loading {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.image-loaded {
+    filter: blur(0);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes btnPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cartPulse {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Filter button animations */
+.filter-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #dc3545;
+    transition: width 0.3s ease;
+}
+
+.filter-btn:hover::after {
+    width: 100%;
+}
+
+.filter-btn.active::after {
+    width: 100%;
+}
+
+/* Product card staggered animation */
+.product-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Product meta hover effect */
+.product-meta {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-meta {
+    transform: translateY(-5px);
+}
+
+/* Product title hover effect */
+.product-title {
+    transition: color 0.3s ease;
+}
+
+.product-card:hover .product-title {
+    color: #dc3545;
+}
